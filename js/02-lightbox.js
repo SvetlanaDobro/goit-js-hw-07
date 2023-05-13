@@ -25,32 +25,17 @@ function createGalleryCardMarkup(galleryItems) {
 };
 
 function onPalletteGalleryClick(evt) {
-    evt.preventDefault();
-    if (evt.target.nodeName !== 'IMG') {
-        return;
-    }
-  const originalImageUrl = evt.target.src;
-  console.log(originalImageUrl);
-
-  //  const imagesWithCaptions = galleryItems.map(({ preview, original, description }) => ({
-  // [original]: { caption: description }
-  //  })).reduce((result, item) => Object.assign(result, item), {});
-  
-  
-  const imagesWithCaptions = {};
-  for (const item of galleryItems) {
-  imagesWithCaptions[item.original] = { caption: item.description };
-}
-
-  const lightbox = new SimpleLightbox('.gallery a', {
+  evt.preventDefault();
+  if (evt.target.nodeName !== 'IMG') {
+    return;
+  }
+ 
+  const galleryN = new SimpleLightbox('.gallery a', {
     captions: true,
     captionDelay: 250,
-    captionsData: imagesWithCaptions,
+    captionsData: 'alt'
   });
-
-  console.log(lightbox);
-}
-
+  }
+  
 
 
-console.log(galleryItems);
