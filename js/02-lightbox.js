@@ -7,8 +7,6 @@ const cardsMarkup = createGalleryCardMarkup(galleryItems);
 
 gallery.insertAdjacentHTML('beforeend', cardsMarkup);
 
-gallery.addEventListener('click', onPalletteGalleryClick);
-
 function createGalleryCardMarkup(galleryItems) {
     return galleryItems.map(({preview, original, description}) => {
         return `
@@ -24,18 +22,8 @@ function createGalleryCardMarkup(galleryItems) {
     }).join('');
 };
 
-function onPalletteGalleryClick(evt) {
-  evt.preventDefault();
-  if (evt.target.nodeName !== 'IMG') {
-    return;
-  }
- 
   const galleryN = new SimpleLightbox('.gallery a', {
     captions: true,
     captionDelay: 250,
     captionsData: 'alt'
   });
-  }
-  
-
-
